@@ -14,6 +14,7 @@ export default function CollectionTile({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const hasSlider = collection.images && collection.images.length > 1;
   const images = collection.images || [collection.image];
+  const isFeatured = collection.featured;
 
   useEffect(() => {
     if (!hasSlider) return;
@@ -56,8 +57,16 @@ export default function CollectionTile({
 
   return (
     <div
-      className="group relative h-80 md:h-96 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105"
-      style={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)' }}
+      className={`group relative h-80 md:h-96 rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ${
+        isFeatured
+          ? 'md:scale-105 hover:scale-110'
+          : 'transform hover:scale-105'
+      }`}
+      style={{
+        boxShadow: isFeatured
+          ? '0 16px 48px rgba(36, 50, 71, 0.2), 0 0 0 2px #e7ddcc, 0 0 24px rgba(231, 221, 204, 0.3)'
+          : '0 8px 24px rgba(0, 0, 0, 0.06)',
+      }}
       onClick={onActionClick}
     >
       {images.map((img, index) => (

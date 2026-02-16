@@ -1,21 +1,39 @@
 import DecorativeIcon from '../components/DecorativeIcons';
+import { ArrowRight } from 'lucide-react';
 
 interface BraceletsLandingPageProps {
   onOrderNow: () => void;
 }
 
 export default function BraceletsLandingPage({ onOrderNow }: BraceletsLandingPageProps) {
+  const handleBackToHome = () => {
+    window.close();
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-white" dir="rtl">
+      <div className="fixed top-6 right-6 z-50">
+        <button
+          onClick={handleBackToHome}
+          className="flex items-center gap-2 text-white hover:text-[#e7ddcc] transition-all duration-300 text-sm font-light backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full hover:bg-black/30"
+        >
+          <span>العودة للرئيسية</span>
+          <ArrowRight size={16} />
+        </button>
+      </div>
+
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(135deg, rgba(36, 50, 71, 0.7) 0%, rgba(36, 50, 71, 0.5) 100%), url('/orzi-aura.jpg')",
+              "linear-gradient(135deg, rgba(36, 50, 71, 0.7) 0%, rgba(36, 50, 71, 0.5) 100%), url('/bracelets-header.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#e7ddcc]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
 
         <DecorativeIcon icon="crown" position={{ top: '15%', left: '10%' }} delay={0} />
         <DecorativeIcon icon="diamond" position={{ top: '25%', right: '12%' }} delay={1.5} />
@@ -141,43 +159,44 @@ export default function BraceletsLandingPage({ onOrderNow }: BraceletsLandingPag
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-[#e7ddcc] relative">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-white to-[#f5f0ea] relative">
         <DecorativeIcon icon="star" position={{ bottom: '15%', left: '10%' }} delay={3} />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-[#243247] mb-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-bold text-[#243247] mb-4">
               .لماذا ORZI؟
             </h2>
+            <div className="w-24 h-1 bg-[#243247] mx-auto mt-6"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">١</span>
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="text-center p-10 bg-white/60 backdrop-blur-sm rounded-3xl border border-[#e7ddcc]/30 hover:border-[#e7ddcc] transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a38] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-3xl text-[#e7ddcc] font-bold">١</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">جودة خالدة</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-6">جودة خالدة</h3>
+              <p className="text-gray-600 leading-loose text-lg">
                 نستخدم أجود أنواع النحاس مع طلاء نيكل وذهب عالي الجودة، مقاوم للصدأ والتغير، لقطع تدوم معك طويلاً
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">٢</span>
+            <div className="text-center p-10 bg-white/60 backdrop-blur-sm rounded-3xl border border-[#e7ddcc]/30 hover:border-[#e7ddcc] transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a38] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-3xl text-[#e7ddcc] font-bold">٢</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">تصميم متفرد</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-6">تصميم متفرد</h3>
+              <p className="text-gray-600 leading-loose text-lg">
                 كل قطعة مستوحاة من التراث المصري العريق، مع لمسة عصرية تناسب أسلوبك وتعكس شخصيتك
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">٣</span>
+            <div className="text-center p-10 bg-white/60 backdrop-blur-sm rounded-3xl border border-[#e7ddcc]/30 hover:border-[#e7ddcc] transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a38] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-3xl text-[#e7ddcc] font-bold">٣</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">راحة مطلقة</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-6">راحة مطلقة</h3>
+              <p className="text-gray-600 leading-loose text-lg">
                 تصميم قابل للتعديل يناسب جميع أحجام المعاصم، مع خامات مريحة للارتداء اليومي دون أي إزعاج
               </p>
             </div>

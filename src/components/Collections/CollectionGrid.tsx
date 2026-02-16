@@ -9,6 +9,14 @@ interface CollectionGridProps {
 export default function CollectionGrid({
   onCollectionSelect,
 }: CollectionGridProps) {
+  const handleCollectionClick = (collectionId: string) => {
+    if (collectionId === 'bracelets') {
+      window.open('/bracelets', '_blank');
+    } else {
+      onCollectionSelect?.(collectionId);
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-[#e7ddcc] relative">
       <DecorativeIcon icon="watch" position={{ top: '10%', right: '5%' }} delay={0.5} />
@@ -29,7 +37,7 @@ export default function CollectionGrid({
             <CollectionTile
               key={collection.id}
               collection={collection}
-              onActionClick={() => onCollectionSelect?.(collection.id)}
+              onActionClick={() => handleCollectionClick(collection.id)}
             />
           ))}
         </div>

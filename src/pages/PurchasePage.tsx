@@ -59,30 +59,32 @@ export default function PurchasePage({ onBack }: PurchasePageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#e7ddcc] py-12 px-4" dir="rtl">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5f0ea] via-[#e7ddcc] to-[#f5f0ea] py-12 px-4" dir="rtl">
+      <div className="max-w-5xl mx-auto">
         <button
           onClick={onBack}
-          className="mb-8 flex items-center gap-2 text-[#243247] hover:underline"
+          className="mb-8 flex items-center gap-2 text-[#243247] hover:text-[#243247]/70 transition-all duration-300 bg-white/50 backdrop-blur-sm px-5 py-3 rounded-full shadow-sm hover:shadow-md"
         >
-          <X size={20} />
-          العودة
+          <X size={18} />
+          <span className="font-light">العودة</span>
         </button>
 
-        <div
-          className="rounded-2xl p-8 md:p-12"
-          style={{
-            background: 'rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
-          }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-[#243247] mb-12 text-center">
-            أكمل طلبك
-          </h1>
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-16 shadow-2xl border border-white/50">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold text-[#243247] mb-4 leading-tight">
+              أكمل طلبك
+            </h1>
+            <p className="text-lg text-gray-600 font-light">
+              نحن على بعد خطوة واحدة من إيصال قطعتك إليك
+            </p>
+            <div className="w-24 h-1 bg-[#243247] mx-auto mt-6"></div>
+          </div>
+
           <OrderForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+        </div>
+
+        <div className="text-center mt-8 text-sm text-gray-600">
+          <p>جميع المعلومات محمية بأعلى معايير الأمان</p>
         </div>
       </div>
 

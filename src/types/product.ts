@@ -36,6 +36,7 @@ export interface Collection {
   image: string;
   images?: string[];
   productCount: number;
+  featured?: boolean;
 }
 
 export interface CartItem {
